@@ -76,10 +76,7 @@ export function trackEvent(
  * @param userId - User ID
  * @param traits - User traits/properties
  */
-export function identifyUser(
-  userId: string,
-  traits?: Record<string, any>
-) {
+export function identifyUser(userId: string, traits?: Record<string, any>) {
   // Example: PostHog
   // import posthog from 'posthog-js';
   // posthog.identify(userId, traits);

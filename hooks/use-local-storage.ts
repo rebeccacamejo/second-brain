@@ -70,7 +70,10 @@ export function useLocalStorage<T>(
         try {
           setStoredValue(JSON.parse(e.newValue) as T);
         } catch (error) {
-          console.error(`Error parsing localStorage value for "${key}":`, error);
+          console.error(
+            `Error parsing localStorage value for "${key}":`,
+            error
+          );
         }
       }
     };

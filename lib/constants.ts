@@ -4,7 +4,8 @@
 
 export const SITE_NAME = "secondbrain";
 
-export const SITE_DESCRIPTION = "Your AI-powered companion for mastering any skill";
+export const SITE_DESCRIPTION =
+  "Your AI-powered companion for mastering any skill";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";

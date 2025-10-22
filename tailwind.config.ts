@@ -101,7 +101,7 @@ const config: Config = {
       },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
-        "float": "float 3s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
@@ -116,7 +116,7 @@ const config: Config = {
             "background-position": "right center",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },

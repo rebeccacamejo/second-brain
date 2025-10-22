@@ -54,7 +54,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     ref
   ) => {
     const content = contained ? (
-      <div className="container mx-auto container-padding">{children}</div>
+      <div className="container-padding container mx-auto">{children}</div>
     ) : (
       children
     );

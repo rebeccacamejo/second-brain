@@ -24,9 +24,10 @@ export function formatDate(
     day: "numeric",
   }
 ): string {
-  const dateObj = typeof date === "string" || typeof date === "number"
-    ? new Date(date)
-    : date;
+  const dateObj =
+    typeof date === "string" || typeof date === "number"
+      ? new Date(date)
+      : date;
 
   return new Intl.DateTimeFormat("en-US", options).format(dateObj);
 }

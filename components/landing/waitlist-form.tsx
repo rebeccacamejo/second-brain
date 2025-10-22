@@ -32,7 +32,10 @@ interface WaitlistFormProps {
   className?: string;
 }
 
-export function WaitlistForm({ source = "landing", className }: WaitlistFormProps) {
+export function WaitlistForm({
+  source = "landing",
+  className,
+}: WaitlistFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -97,14 +100,14 @@ export function WaitlistForm({ source = "landing", className }: WaitlistFormProp
 
   if (isSubmitted) {
     return (
-      <div className="flex items-center gap-3 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 animate-fade-in">
+      <div className="animate-fade-in flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-950">
         <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
         <div>
           <p className="font-medium text-emerald-900 dark:text-emerald-100">
-            You're on the list!
+            You&apos;re on the list!
           </p>
           <p className="text-sm text-emerald-700 dark:text-emerald-300">
-            We'll notify you when we launch.
+            We&apos;ll notify you when we launch.
           </p>
         </div>
       </div>
@@ -121,7 +124,7 @@ export function WaitlistForm({ source = "landing", className }: WaitlistFormProp
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="sr-only">Email address</FormLabel>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <FormControl>
                     <Input
                       placeholder="Enter your email"
@@ -135,7 +138,7 @@ export function WaitlistForm({ source = "landing", className }: WaitlistFormProp
                     type="submit"
                     size="lg"
                     disabled={form.formState.isSubmitting}
-                    className="sm:w-auto w-full"
+                    className="w-full sm:w-auto"
                   >
                     {form.formState.isSubmitting ? (
                       <>
@@ -153,14 +156,14 @@ export function WaitlistForm({ source = "landing", className }: WaitlistFormProp
           />
 
           {error && (
-            <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-950">
               <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
             </div>
           )}
         </form>
       </Form>
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-3">
+      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
         By joining, you agree to receive updates about our product. Unsubscribe
         anytime.
       </p>
