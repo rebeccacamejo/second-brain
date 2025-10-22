@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { WaitlistForm } from "@/components/landing/waitlist-form";
 import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
@@ -36,26 +37,21 @@ export function Hero() {
             learning paths, and real-time feedback tailored to your goals.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in">
-            <Button
-              size="lg"
-              className="group animate-pulse-glow"
-              onClick={() => console.log("Get Started clicked")}
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => console.log("Watch Demo clicked")}
-            >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
+          {/* Waitlist Form */}
+          <div className="w-full max-w-md animate-fade-in">
+            <WaitlistForm source="hero" />
           </div>
+
+          {/* Secondary CTA */}
+          <Button
+            size="lg"
+            variant="ghost"
+            onClick={() => console.log("Watch Demo clicked")}
+            className="animate-fade-in"
+          >
+            <Play className="mr-2 h-5 w-5" />
+            Watch Demo
+          </Button>
 
           {/* Social Proof */}
           <div className="mt-12 flex items-center gap-8 text-sm text-gray-600 dark:text-gray-400 animate-fade-in">
