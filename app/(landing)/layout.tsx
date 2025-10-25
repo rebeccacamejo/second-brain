@@ -1,4 +1,5 @@
 import React from "react";
+import { Navbar } from "@/components/shared/navbar";
 
 /**
  * Landing page layout wrapper
@@ -11,7 +12,7 @@ export default function LandingLayout({
 }) {
   return (
     <div className="relative min-h-screen">
-      {/* Add landing-specific providers here */}
+      <Navbar />
       {children}
     </div>
   );

@@ -1,10 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { WaitlistForm } from "@/components/landing/waitlist-form";
 import { Play } from "lucide-react";
 
+const SPECIALIZATIONS = [
+  "Machine Learning",
+  "Deep Learning",
+  "AI Research",
+  "Neural Networks",
+] as const;
+
 export function Hero() {
+  const [currentSpecialization, setCurrentSpecialization] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSpecialization((prev) => (prev + 1) % SPECIALIZATIONS.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
       {/* Gradient Background */}
@@ -20,27 +37,38 @@ export function Hero() {
       {/* Content */}
       <div className="container-padding section-padding relative container mx-auto">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          {/* Badge */}
-          <div className="bg-brand-100 dark:bg-brand-950 border-brand-200 dark:border-brand-800 animate-fade-in mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-            <span className="bg-brand-500 h-2 w-2 animate-pulse rounded-full" />
-            <span className="text-brand-700 dark:text-brand-300 text-sm font-medium">
-              AI-Powered Learning Platform
+          {/* Eyebrow - Social Proof */}
+          <div className="animate-fade-in mb-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-50 to-purple-50 px-4 py-2 dark:from-brand-950 dark:to-purple-950">
+            <span className="text-2xl">🚀</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Join 1,847 ML engineers already learning
             </span>
           </div>
 
-          {/* Headline */}
-          <h1 className="animate-fade-in mb-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
-            Your <span className="gradient-text">AI Learning Companion</span>
+          {/* Main Headline with Rotating Text */}
+          <h1 className="animate-fade-in mb-6 text-3xl font-bold sm:text-5xl lg:text-6xl">
+            Your Second Brain for{" "}
+            <span className="relative inline-block">
+              <span
+                key={currentSpecialization}
+                className="gradient-text animate-fade-in bg-gradient-to-r from-brand-600 to-purple-600 bg-clip-text text-transparent"
+              >
+                {SPECIALIZATIONS[currentSpecialization]}
+              </span>
+            </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="animate-fade-in mb-12 max-w-2xl text-xl text-gray-600 sm:text-2xl dark:text-gray-400">
-            Master any skill with personalized AI guidance, intelligent learning
-            paths, and real-time feedback tailored to your goals.
+          {/* Subheadline - Pain Point → Solution */}
+          <p className="animate-fade-in mb-12 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl dark:text-gray-400">
+            <span className="font-semibold text-gray-900 dark:text-gray-100">
+              Stop forgetting what you learn.
+            </span>{" "}
+            Build a living knowledge graph that connects papers, videos, and
+            courses into mastery.
           </p>
 
           {/* Waitlist Form */}
-          <div className="animate-fade-in w-full max-w-md">
+          <div id="waitlist" className="animate-fade-in w-full max-w-md">
             <WaitlistForm source="hero" />
           </div>
 
@@ -68,7 +96,9 @@ export function Hero() {
                   />
                 ))}
               </div>
-              <span className="font-medium">Join 10,000+ learners</span>
+              <span className="font-medium">
+                Trusted by researchers at MIT, Stanford & Google
+              </span>
             </div>
           </div>
         </div>
